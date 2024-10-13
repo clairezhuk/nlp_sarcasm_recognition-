@@ -48,13 +48,13 @@ train.__doc__="""
     """
 
 
-def prepare_submission():
+def prepare_submission(patch=SUBMISSION_DATA_TEST_PATH):
     # Load trained classifier and vectorizer
     clf = load('clf.joblib')
     vectorizer = load('vectorizer.joblib')
 
     # Read submission test data
-    data = pd.read_csv(SUBMISSION_DATA_TEST_PATH, index_col=0)
+    data = pd.read_csv(patch, index_col=0)
     # Preprocess text data
     preprocessed_data = preprocess_text(data)
 
